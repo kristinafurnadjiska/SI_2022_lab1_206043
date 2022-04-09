@@ -1,0 +1,175 @@
+4. 
+git clone https://github.com/kristinafurnadjiska/SI_2022_lab1_206043.git 206043
+Cloning into '206043'...
+remote: Enumerating objects: 6, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 6 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (6/6), done.
+
+-Клонирање на repo во локален директориум 206043
+
+5.
+git add shopping_list.txt
+git commit -m "Add 5 items to the shopping list"
+[master e6616f8] Add 5 items to the shopping list
+ 1 file changed, 5 insertions(+)
+ create mode 100644 shopping_list.txt
+
+-Поставување на текст документот на ,,сцена,, и негова ревизија(создавање на нов комит)
+
+6.
+git add shopping_list.txt
+git commit -m "Add quantities to the items."
+[master fd980bc] Add quantities to the items.
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+-Додавање на нов комит со нова промена
+
+7.
+git checkout -b branch1
+Switched to a new branch 'branch1'
+
+git checkout master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+
+git checkout -b branch2
+Switched to a new branch 'branch2'
+
+-Создавање на две нови гранки кои произлегуваат од master
+
+9.
+git push --set-upstream origin branch1
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+remote:
+remote: Create a pull request for 'branch1' on GitHub by visiting:
+remote:      https://github.com/kristinafurnadjiska/SI_2022_lab1_206043/pull/new/branch1
+remote:
+To https://github.com/kristinafurnadjiska/SI_2022_lab1_206043.git
+ * [new branch]      branch1 -> branch1
+branch 'branch1' set up to track 'origin/branch1'.
+
+git push --set-upstream origin branch2
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+remote:
+remote: Create a pull request for 'branch2' on GitHub by visiting:
+remote:      https://github.com/kristinafurnadjiska/SI_2022_lab1_206043/pull/new/branch2
+remote:
+To https://github.com/kristinafurnadjiska/SI_2022_lab1_206043.git
+ * [new branch]      branch2 -> branch2
+branch 'branch2' set up to track 'origin/branch2'.
+
+-Синхронизирање на двете гранки со github repo
+
+10.
+git checkout branch1
+
+
+- Се префрлуваме на првата гранка 
+
+11.
+git add shopping_list.txt
+git commit -m "Change quantity of item #5"
+[branch1 dd8121a] Change quantity of item #5
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+- Го менуваме квантитетот на последната ставка
+
+12.
+git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+- Се наоѓаме на мастер 
+
+13.
+git add shopping_list.txt
+git commit -m "Change quantity of item #2"
+[master a3ddcbc] Change quantity of item #2
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+-Ја менуваме втората ставка на мастер гранката
+
+14.
+git push origin master
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 349 bytes | 349.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/kristinafurnadjiska/SI_2022_lab1_206043.git
+   fd980bc..a3ddcbc  master -> master
+
+git checkout branch1
+Switched to branch 'branch1'
+Your branch is ahead of 'origin/branch1' by 1 commit.
+  (use "git push" to publish your local commits)
+
+git push origin branch1
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 346 bytes | 346.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/kristinafurnadjiska/SI_2022_lab1_206043.git
+   fd980bc..dd8121a  branch1 -> branch1
+
+-Ги поставуваме досегашните промените, вршиме синхронизација 
+
+15.
+git checkout branch2
+Switched to branch 'branch2'
+Your branch is up to date with 'origin/branch2'.
+
+- Се наоѓаме на втората гранка
+
+16.
+git add shopping_list.txt
+git commit -m "Modify item #4"
+[branch2 5fcae94] Modify item #4
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+-Промена на 4та ставка
+
+18.
+git add shopping_list.txt
+git commit --amend -m "Modify item #4 and add item #6"
+[branch2 30c2551] Modify item #4 and add item #6
+ Date: Sat Apr 9 18:48:37 2022 +0200
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+-Вршиме модификација на последно креираниот комит. Се спојува промената со претходно креираниот комит наместо да се создаде нов.
+
+20.
+git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+git merge branch1
+Auto-merging shopping_list.txt
+Merge made by the 'ort' strategy.
+ shopping_list.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+- Успешно спојување на гранка 1 со мастер
+
+21.
+git merge branch2
+Auto-merging shopping_list.txt
+CONFLICT (content): Merge conflict in shopping_list.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+git add shopping_list.txt
+
+git commit -m "Merging branch2 into master"
+[master e0f5ed2] Merging branch2 into master
+
+- Се обидуваме регуларно да ги споиме гранка 2 со мастер со помош на стратегија merge, но се јавува конфликт затоа што имаме промени на иста линија во ист фајл. 
+Затоа конфликтот се разрешува локално каде се зачувуваат промените кои што сакаме да ги има во фајлот. Откако ги разрешуваме конфликтите, се комитуваат проблемите.
+
+
+
