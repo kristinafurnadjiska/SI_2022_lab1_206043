@@ -1,5 +1,7 @@
 kafe x 2
 jabolka x 5
 voda x 2
-banani x 2
 jagodi x 5 
+palomi x 2 
+cokolada x 3
+
